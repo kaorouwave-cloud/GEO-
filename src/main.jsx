@@ -1,0 +1,1 @@
+// React entry point - no need to render anything as the site is fully implemented in HTML
