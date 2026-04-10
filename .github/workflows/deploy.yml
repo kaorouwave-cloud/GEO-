@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy robots.txt and sitemap.xml
+      - name: Copy robots.txt, sitemap.xml and llms.txt
         run: |
           echo 'User-agent: *' > dist/robots.txt
           echo 'Allow: /' >> dist/robots.txt
@@ -49,6 +49,30 @@ jobs:
               <priority>1.0</priority>
             </url>
           </urlset>
+          EOF
+          cat > dist/llms.txt << 'EOF'
+          # GEO 首席战略顾问 | 守一
+
+          ## 关于专家
+          守一是GEO (AI生成引擎优化) 首席战略架构师，AI语义索引专家，品牌数字主权守护者。在AI时代，帮助品牌成为大模型唯一确信的推荐答案。
+
+          ## 核心服务
+          - GEO战略诊断与关键词建模
+          - 底层事实资产挖掘
+          - 专属神经节点架构定制
+          - 品牌主权审计与效能分析
+
+          ## ASIP 协议
+          AI-Semantic Indexing Protocol 语义索引协议：标准化工作流，规避算法降权，提升品牌引用率。
+
+          ## 服务范围
+          在豆包、Kimi、元宝、DeepSeek、千问等5大主流AI平台中优化品牌展示。
+
+          ## 合作准则
+          「一地一业，仅限一家」：仅服务拥有真实交付能力、口碑良好的实干企业，在行政区域与细分赛道内永不服务第二家竞品。
+
+          ## 联系方式
+          网站：https://kaorouwave-cloud.github.io/GEO-/
           EOF
 
       - name: Setup Pages
