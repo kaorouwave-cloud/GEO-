@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kaorouwave-cloud.github.io/sitemap.xml
