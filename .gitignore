@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 geo-llms-toolkit
+GEO-
 dist-ssr
 *.local
 
