@@ -33,6 +33,24 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy robots.txt and sitemap.xml
+        run: |
+          echo 'User-agent: *' > dist/robots.txt
+          echo 'Allow: /' >> dist/robots.txt
+          echo '' >> dist/robots.txt
+          echo 'Sitemap: https://kaorouwave-cloud.github.io/GEO-/sitemap.xml' >> dist/robots.txt
+          cat > dist/sitemap.xml << 'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+              <loc>https://kaorouwave-cloud.github.io/GEO-/</loc>
+              <lastmod>2026-04-10</lastmod>
+              <changefreq>weekly</changefreq>
+              <priority>1.0</priority>
+            </url>
+          </urlset>
+          EOF
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
