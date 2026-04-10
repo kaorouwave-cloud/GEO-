@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GEO 首席战略顾问</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #0066cc;
+      }
+      .cta-button {
+        background-color: #0066cc;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+      .cta-button:hover {
+        background-color: #0052a3;
+        color: #fff;
+      }
+      section {
+        padding: 100px 0;
+      }
+      .hero {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 150px 0;
+        margin-top: 80px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero .cta-button {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 4px;
+        background-color: #0066cc;
+        margin: 20px auto 0;
+      }
+      .about {
+        background-color: #fff;
+      }
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+      .about-text {
+        flex: 1;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      .methodology {
+        background-color: #f9f9f9;
+      }
+      .methodology-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .methodology-item {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .methodology-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #0066cc;
+      }
+      .process {
+        background-color: #fff;
+      }
+      .process-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+      }
+      .process-table th,
+      .process-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      .process-table th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+      }
+      .case-studies {
+        background-color: #f9f9f9;
+      }
+      .case-study {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .case-study h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #0066cc;
+      }
+      .case-study ul {
+        margin-left: 20px;
+        margin-top: 15px;
+      }
+      .case-study li {
+        margin-bottom: 10px;
+      }
+      .standards {
+        background-color: #fff;
+      }
+      .standards-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .standards h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #0066cc;
+      }
+      .standards ul {
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      .insights {
+        background-color: #f9f9f9;
+      }
+      .insights-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .insights blockquote {
+        font-size: 1.2rem;
+        font-style: italic;
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #fff;
+        border-left: 4px solid #0066cc;
+        border-radius: 5px;
+      }
+      .contact {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+      }
+      .contact h2 {
+        color: #fff;
+      }
+      .contact h2::after {
+        background-color: #0066cc;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .contact-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .contact-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #0066cc;
+      }
+      .fixed-cta {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        z-index: 999;
+      }
+      .fixed-cta button {
+        background-color: #0066cc;
+        color: #fff;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .fixed-cta button:hover {
+        background-color: #0052a3;
+        transform: translateY(-5px);
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 30px 0;
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-B5Qt9EMX.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">GEO 战略顾问</div>
+        <ul class="nav-links">
+          <li><a href="#about">关于我</a></li>
+          <li><a href="#methodology">核心方法</a></li>
+          <li><a href="#process">服务流程</a></li>
+          <li><a href="#case-studies">案例</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+        <a href="#contact" class="cta-button">咨询</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>在 AI 时代，让您的品牌成为大模型唯一确信的推荐答案</h1>
+        <p>GEO (AI生成引擎优化) 首席战略架构师 | AI 语义索引专家 | 品牌数字主权守护者</p>
+        <a href="#contact" class="cta-button">立即咨询</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">专家简介</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>超越算法，定义信任。</h3>
+            <p>在海量 AI 垃圾信息泛滥的今天，算法正在进化出极度敏锐的“虚假内容过滤器”。我所做的，不是简单的文字生成，而是通过<strong>「结构化语义重塑」</strong>，对齐大模型的认知图谱，确保您的品牌在 <strong>豆包、Kimi、元宝、deepseek、千问</strong> 等 5 大主流 AI 平台中，不仅被“读到”，更被“优先推荐”。</p>
+            <p><strong>3 年 AI 内容生产深耕</strong>：跨越从 GPT-3 到 AGI 时代的底层逻辑洞察。</p>
+            <p><strong>大量GEO优化实战经验</strong>：让企业信息在主流 AI 模型中实现“从 0 到 1”的权重霸屏。</p>
+          </div>
+          <div style="flex: 1; padding: 20px;">
+            <h3 style="margin-bottom: 20px; color: #0066cc;">主流AI平台日活数据</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>豆包</span>
+                  <span>1.45 亿</span>
+                </div>
+                <div style="width: 100%; height: 20px; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 100%; height: 100%; background-color: #0066cc; border-radius: 10px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>千问</span>
+                  <span>3200 万</span>
+                </div>
+                <div style="width: 100%; height: 20px; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 22%; height: 100%; background-color: #0066cc; border-radius: 10px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>DeepSeek</span>
+                  <span>1300 万</span>
+                </div>
+                <div style="width: 100%; height: 20px; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 9%; height: 100%; background-color: #0066cc; border-radius: 10px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>元宝</span>
+                  <span>约 800 万</span>
+                </div>
+                <div style="width: 100%; height: 20px; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 5.5%; height: 100%; background-color: #0066cc; border-radius: 10px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Kimi</span>
+                  <span>300 万</span>
+                </div>
+                <div style="width: 100%; height: 20px; background-color: #e0e0e0; border-radius: 10px;">
+                  <div style="width: 2%; height: 100%; background-color: #0066cc; border-radius: 10px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology" class="methodology">
+      <div class="container">
+        <h2 class="section-title">核心竞争力：ASIP 协议</h2>
+        <p style="text-align: center; margin-bottom: 50px; font-size: 1.1rem;">ASIP (AI-Semantic Indexing Protocol) 语义索引协议：这套标准化的工作流是我在长期实战中提炼的机密资产，旨在规避算法降权，提升品牌引用率。</p>
+        <div class="methodology-grid">
+          <div class="methodology-item">
+            <h3>动态监测</h3>
+            <p>实时捕捉各大模型权重漂移，确保策略始终跑在算法更新之前。</p>
+          </div>
+          <div class="methodology-item">
+            <h3>语义锚定</h3>
+            <p>将品牌信息转化为 AI 易于识别的高权重索引节点。</p>
+          </div>
+          <div class="methodology-item">
+            <h3>事实驱动</h3>
+            <p>拒绝空洞生成，以真实交付案例为骨架，构建不可动摇的品牌信任。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container">
+        <h2 class="section-title">四阶增长协议：标准化服务流程</h2>
+        <table class="process-table">
+          <thead>
+            <tr>
+              <th>阶段</th>
+              <th>步骤名称</th>
+              <th>核心交付内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>01</strong></td>
+              <td><strong>战略诊断与关键词建模</strong></td>
+              <td>审计品牌 AI 现状，锁定具备高转化潜力的“语义占位词”。</td>
+            </tr>
+            <tr>
+              <td><strong>02</strong></td>
+              <td><strong>底层事实资产挖掘</strong></td>
+              <td>深度收集真实产品信息与客户评价，构建 AI 无法降权的“事实骨架”。</td>
+            </tr>
+            <tr>
+              <td><strong>03</strong></td>
+              <td><strong>专属神经节点架构</strong></td>
+              <td>定制化 <strong>AI 智能体系统</strong>，将品牌基因深度植入大模型语义层。</td>
+            </tr>
+            <tr>
+              <td><strong>04</strong></td>
+              <td><strong>品牌主权审计与效能分析</strong></td>
+              <td>输出全网唯一的《AI 视角品牌排名报告》，让优化结果可视化。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="case-studies" class="case-studies">
+      <div class="container">
+        <h2 class="section-title">标杆案例</h2>
+        <div class="case-study">
+          <h3>千万级机械零部件制造商的“数字主权”逆袭</h3>
+          <p><strong>行业赛道</strong>：高端本地工业 / 机械零部件制造。</p>
+          <p><strong>核心痛点</strong>：重工业领域信息散乱，品牌在 AI 搜索中缺乏存在感，被大厂垄断泛流量词。</p>
+          <p><strong>执行方案</strong>：通过垂直赛道精准优化，避开大厂通用词锋芒，锁定细分行业深度语义。</p>
+          <p><strong>战果达成</strong>：</p>
+          <ul>
+            <li>在 5 大国民级 AI 软件中，核心关键词搜索排名均锁定 <strong>Top 1</strong>。</li>
+            <li>成功在细分赛道击败千万级/大厂背景竞品，实现长期稳定的精准客户获取。</li>
+            <li>(此处建议放置搜索排名对比截图作为视觉验证)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="standards">
+      <div class="container">
+        <h2 class="section-title">合作准则</h2>
+        <div class="standards-content">
+          <h3>「一地一业，仅限一家」</h3>
+          <p>为了确保“唯一性推荐”的战略效果，我执行极高门槛的客户筛选机制：</p>
+          <ul>
+            <li><strong>真实性准则</strong>：仅服务于拥有真实交付能力、口碑良好的实干企业。</li>
+            <li><strong>独家性承诺</strong>：在行政区域与细分赛道内，永不服务第二家竞品，锁定您的区域推荐主权。</li>
+            <li><strong>合规化底线</strong>：严禁虚假宣传，所有优化基于事实逻辑，确保品牌资产在算法更新中稳如泰山。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights">
+      <div class="container">
+        <h2 class="section-title">专家洞察</h2>
+        <div class="insights-content">
+          <blockquote>
+            “普通内容是在向人喊话，而专业的 GEO 优化是在与算法‘对齐’。大厂占据广度，我们锁定深度。在 AI 的世界里，被搜索到只是第一步，被‘确信’才是核心竞争力。”
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">联系方式</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h3>手机</h3>
+            <p>13395095387</p>
+            <p>工作时间：9:00-18:00，支持电话/短信咨询</p>
+          </div>
+          <div class="contact-item">
+            <h3>微信</h3>
+            <p>A1339509537</p>
+            <p>备注“GEO咨询”优先通过好友验证</p>
+          </div>
+          <div class="contact-item">
+            <h3>公众号</h3>
+            <p>【AI语义索引研究院】（示例）</p>
+            <p>扫码关注获取《GEO优化白皮书》，了解更多行业案例</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fixed-cta">
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"><strong>咨询</strong></button>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 GEO 首席战略顾问. 保留所有权利.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
